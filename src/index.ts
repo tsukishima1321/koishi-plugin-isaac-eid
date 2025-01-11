@@ -1,6 +1,10 @@
-import { readFileSync } from 'fs'
-import path from 'path'
-import { Context, Dict, Schema } from 'koishi'
+import { Context, Schema } from 'koishi'
+import { Pool, PoolAlias, GetPoolByAlias } from './pool'
+import { birthrights, GetCharacterByAlias, characterAlias } from './character'
+import { cards } from './cards'
+import { collectibles } from './collectibles'
+import { trinkets } from './trinkets'
+import { pills } from './pills'
 
 export const name = 'isaac-eid'
 
@@ -14,55 +18,32 @@ interface item {
   'description': string
 }
 
+function renderDescription(description: string): string {
+  description = description.replaceAll('#', '\n')
+  description = description.replace(/\{\{.*?\}\}/g, '')
+  return description
+}
+
+function renderCollectible(type: string, item: item): string {
+  let result = type + item.id + " " + item.name + "：\n" + renderDescription(item.description) + "\n" + "道具池："
+  for (let key in Pool) {
+    if (Pool[key].indexOf(item.id) != -1) {
+      result += PoolAlias[key][0] + " "
+    }
+  }
+  return result
+}
+
+function pickRandomCollectible(alias: string): number {
+  const pool = GetPoolByAlias(alias)
+  if (!pool)
+    return -1
+  return pool[Math.floor(Math.random() * pool.length)]
+}
+
+
+
 export function apply(ctx: Context) {
-  let pills: { [key: number]: item } = { 9999: { 'id': 9999, 'name': 'error', 'description': 'error' } }
-  let trinkets: { [key: number]: item } = { 9999: { 'id': 9999, 'name': 'error', 'description': 'error' } }
-  let cards: { [key: number]: item } = { 9999: { 'id': 9999, 'name': 'error', 'description': 'error' } }
-  let collectibles: { [key: number]: item } = { 9999: { 'id': 9999, 'name': 'error', 'description': 'error' } }
-  try {
-    let data = readFileSync(path.join(__dirname, 'pills.json'), 'utf8')
-    let content = JSON.parse(data)
-    try {
-      pills = content
-    } catch (e) {
-      pills = { 9999: { 'id': 9999, 'name': 'error', 'description': '文件中存在错误' } }
-    }
-  } catch (err) {
-    console.log(`Error reading file from disk: ${err}`)
-  }
-  try {
-    let data = readFileSync(path.join(__dirname, 'trinkets.json'), 'utf8')
-    let content = JSON.parse(data)
-    try {
-      trinkets = content
-    } catch (e) {
-      trinkets = { 9999: { 'id': 9999, 'name': 'error', 'description': '文件中存在错误' } }
-    }
-  } catch (err) {
-    console.log(`Error reading file from disk: ${err}`)
-  }
-  try {
-    let data = readFileSync(path.join(__dirname, 'cards.json'), 'utf8')
-    let content = JSON.parse(data)
-    try {
-      cards = content
-    } catch (e) {
-      cards = { 9999: { 'id': 9999, 'name': 'error', 'description': '文件中存在错误' } }
-    }
-  } catch (err) {
-    console.log(`Error reading file from disk: ${err}`)
-  }
-  try {
-    let data = readFileSync(path.join(__dirname, 'collectibles.json'), 'utf8')
-    let content = JSON.parse(data)
-    try {
-      collectibles = content
-    } catch (e) {
-      collectibles = { 9999: { 'id': 9999, 'name': 'error', 'description': '文件中存在错误' } }
-    }
-  } catch (err) {
-    console.log(`Error reading file from disk: ${err}`)
-  }
   ctx.command('eid <arg:string>', '查找以撒物品信息')
     .action(async (_, arg) => {
       if (!arg) {
@@ -94,10 +75,11 @@ export function apply(ctx: Context) {
         if (!item) {
           return '未找到物品'
         }
-        let des = item.description
-        des = des.replaceAll('#', '\n')
-        des = des.replace(/\{\{.*?\}\}/g, '')
-        return type + id + " " + item.name + "：\n" + des
+        if (type == 'c') {
+          return renderCollectible(type, item)
+        } else {
+          return type + id + " " + item.name + "：\n" + renderDescription(item.description)
+        }
       }
       for (let key in pills) {
         if (rExp.test(pills[key].name)) {
@@ -142,16 +124,43 @@ export function apply(ctx: Context) {
             item = collectibles[parseInt(id)]
             break
         }
-        let des = item.description
-        des = des.replaceAll('#', '\n')
-        //replace all {...} with ''
-        des = des.replace(/\{\{.*?\}\}/g, '')
-        resultStr = type + id + " " +  item.name + "：\n" + des
+        if (type == 'c') {
+          resultStr = renderCollectible(type, item)
+        } else {
+          resultStr = type + id + " " + item.name + "：\n" + renderDescription(item.description)
+        }
       } else {
         for (let key in results) {
           resultStr += key + "：" + results[key] + "\n"
         }
       }
       return resultStr
+    })
+
+  ctx.command('eid-rand <pool:string>', '随机生成一个道具').alias('随机道具')
+    .action(async (_, pool) => {
+      let id: number;
+      if (!pool) {
+        id = collectibles[Object.keys(collectibles)[Math.floor(Math.random() * Object.keys(collectibles).length)]].id
+      } else {
+        id = pickRandomCollectible(pool)
+      }
+      if (id == -1) {
+        return "没有这个道具池"
+      }
+      let item = collectibles[id]
+      return renderCollectible('c', item)
+    })
+
+  ctx.command('eid-birthright <alias:string>', '查询长子权效果').alias('长子权').alias('长子名分')
+    .action(async (_, character) => {
+      if (!character) {
+        return '请输入要查询的角色名'
+      }
+      const characterName = GetCharacterByAlias(character)
+      if (!characterName) {
+        return '未找到角色'
+      }
+      return "长子名分-" + characterAlias[characterName][0] + '：\n' + renderDescription(birthrights[characterName])
     })
 }
