@@ -4,11 +4,11 @@ interface item {
     'description': string
   }
 
-export const trinkets: { [key: number]: item } = {
+export const trinkets: { [key: number]: item }= {
     1: {
         "id": 1,
         "name": "被吞下的硬币",
-        "description": "{{Coin}} 受伤时生成1硬币#{{Player14}} 店主：受伤时生成0-1硬币"
+        "description": "{{Coin}}受伤时生成1硬币#{{Player14}}店主：受伤时生成0-1硬币"
     },
     2: {
         "id": 2,
@@ -43,7 +43,7 @@ export const trinkets: { [key: number]: item } = {
     8: {
         "id": 8,
         "name": "游戏卡带",
-        "description": "{{Collectible93}} 受伤时5%几率触发掌上游戏机效果"
+        "description": "{{Collectible93}}受伤时5%几率触发掌上游戏机效果"
     },
     9: {
         "id": 9,
@@ -53,12 +53,12 @@ export const trinkets: { [key: number]: item } = {
     10: {
         "id": 10,
         "name": "扭扭虫",
-        "description": "眼泪波形前进#↑ {{Tears}} +0.4射速#获得幽灵眼泪效果"
+        "description": "眼泪波形前进#↑ {{Tears}}+0.4射速#获得幽灵眼泪效果"
     },
     11: {
         "id": 11,
         "name": "环形虫",
-        "description": "眼泪高速螺旋前进#↑ {{Tears}} +0.4射速#获得幽灵眼泪效果"
+        "description": "眼泪高速螺旋前进#↑ {{Tears}}+0.4射速#获得幽灵眼泪效果"
     },
     12: {
         "id": 12,
@@ -68,7 +68,7 @@ export const trinkets: { [key: number]: item } = {
     13: {
         "id": 13,
         "name": "商店积分",
-        "description": "{{Shop}} 1个商店物品免费"
+        "description": "{{Shop}}1个商店物品免费"
     },
     14: {
         "id": 14,
@@ -78,7 +78,7 @@ export const trinkets: { [key: number]: item } = {
     15: {
         "id": 15,
         "name": "幸运石",
-        "description": "{{Coin}} 摧毁岩石有33%几率掉落硬币"
+        "description": "{{Coin}}摧毁岩石有33%几率掉落硬币"
     },
     16: {
         "id": 16,
@@ -88,12 +88,12 @@ export const trinkets: { [key: number]: item } = {
     17: {
         "id": 17,
         "name": "黑色口红",
-        "description": "{{BlackHeart}} +1%黑心几率"
+        "description": "{{BlackHeart}}+1%黑心几率"
     },
     18: {
         "id": 18,
         "name": "圣经小册",
-        "description": "{{EternalHeart}} +3%永恒之心几率"
+        "description": "{{EternalHeart}}+3%永恒之心几率"
     },
     19: {
         "id": 19,
@@ -103,27 +103,27 @@ export const trinkets: { [key: number]: item } = {
     20: {
         "id": 20,
         "name": "猴爪",
-        "description": "{{BlackHeart}} 受伤时血量不多于半心则生成1黑心#!!! 只能用3次"
+        "description": "{{BlackHeart}}受伤时血量不多于半心则生成1黑心#!!! 只能用3次"
     },
     21: {
         "id": 21,
         "name": "神秘纸片",
-        "description": "随机模仿：#{{Blank}} {{Collectible327}} 全家福#{{Blank}} {{Collectible328}} 底片#{{Blank}} {{Trinket48}} 遗失书页#{{Blank}} {{Trinket23}} 寻人启事"
+        "description": "随机模仿：#{{Blank}}{{Collectible327}}全家福#{{Blank}}{{Collectible328}}底片#{{Blank}}{{Trinket48}}遗失书页#{{Blank}}{{Trinket23}}寻人启事"
     },
     22: {
         "id": 22,
         "name": "恶魔的尾巴",
-        "description": "{{Heart}} 心掉落物有80%几率被钥匙取代#{{BlackHeart}} 心掉落物变为黑心"
+        "description": "{{Heart}}心掉落物有80%几率被钥匙取代#{{BlackHeart}}心掉落物变为黑心"
     },
     23: {
         "id": 23,
         "name": "寻人启事",
-        "description": "{{Player10}} 死亡后会以游魂重生 #如果未解锁游魂，在持有该饰品的情况下于{{SacrificeRoom}}献祭房中死亡可以解锁游魂#{{Player31}} 堕化游魂死亡仍会复活为其自身"
+        "description": "{{Player10}}死亡后会以游魂重生 #如果未解锁游魂，在持有该饰品的情况下于{{SacrificeRoom}}献祭房中死亡可以解锁游魂#{{Player31}}堕化游魂死亡仍会复活为其自身"
     },
     24: {
         "id": 24,
         "name": "屁股硬币",
-        "description": "{{Coin}} 便便产生硬币的几率+20%#捡起硬币时放屁#{{Poison}} 屁会使敌人中毒并击退敌人和弹幕"
+        "description": "{{Coin}}便便产生硬币的几率+20%#捡起硬币时放屁#{{Poison}}屁会使敌人中毒并击退敌人和弹幕"
     },
     25: {
         "id": 25,
@@ -133,17 +133,17 @@ export const trinkets: { [key: number]: item } = {
     26: {
         "id": 26,
         "name": "钩形虫",
-        "description": "眼泪直角前进#↑ {{Tears}} +0.4射速#↑ {{Range}} +1.5射程#获得幽灵眼泪效果"
+        "description": "眼泪直角前进#↑ {{Tears}}+0.4射速#↑ {{Range}}+1.5射程#获得幽灵眼泪效果"
     },
     27: {
         "id": 27,
         "name": "鞭形虫",
-        "description": "↑ {{Shotspeed}} +0.5弹速"
+        "description": "↑ {{Shotspeed}}+0.5弹速"
     },
     28: {
         "id": 28,
         "name": "碎安卡十字",
-        "description": "{{Player4}} 22%几率以小蓝人重生"
+        "description": "{{Player4}}22%几率以小蓝人重生"
     },
     29: {
         "id": 29,
@@ -153,12 +153,12 @@ export const trinkets: { [key: number]: item } = {
     30: {
         "id": 30,
         "name": "角膜炎",
-        "description": "10%几率发射有毒眼泪#{{Luck}} 运气18：100%几率"
+        "description": "10%几率发射有毒眼泪#{{Luck}}运气18：100%几率"
     },
     31: {
         "id": 31,
         "name": "图钉",
-        "description": "{{Poison}} 10%几率发射穿透幽灵眼泪#{{Luck}} 运气18：100%几率"
+        "description": "{{Poison}}10%几率发射穿透幽灵眼泪#{{Luck}}运气18：100%几率"
     },
     32: {
         "id": 32,
@@ -173,22 +173,22 @@ export const trinkets: { [key: number]: item } = {
     34: {
         "id": 34,
         "name": "小孩的心脏",
-        "description": "{{Heart}} 10%几率房间清理奖励为1随机心#几率在箱子，宝藏岩石，炸毁的机器中额外出现心"
+        "description": "{{Heart}}10%几率房间清理奖励为1随机心#几率在箱子，宝藏岩石，炸毁的机器中额外出现心"
     },
     35: {
         "id": 35,
         "name": "弯羊角",
-        "description": "↑ {{Damage}} +2伤害修正"
+        "description": "↑ {{Damage}}+2伤害修正"
     },
     36: {
         "id": 36,
         "name": "生锈的钥匙",
-        "description": "{{Key}} 10%几率房间清理奖励为1钥匙#几率在箱子，宝藏岩石，炸毁的机器中额外出现钥匙"
+        "description": "{{Key}}10%几率房间清理奖励为1钥匙#几率在箱子，宝藏岩石，炸毁的机器中额外出现钥匙"
     },
     37: {
         "id": 37,
         "name": "山羊蹄",
-        "description": "↑ {{Speed}} +0.15移速"
+        "description": "↑ {{Speed}}+0.15移速"
     },
     38: {
         "id": 38,
@@ -198,22 +198,22 @@ export const trinkets: { [key: number]: item } = {
     39: {
         "id": 39,
         "name": "癌症",
-        "description": "↑ {{Tears}} +1.0射速修正"
+        "description": "↑ {{Tears}}+1.0射速修正"
     },
     40: {
         "id": 40,
         "name": "红补丁",
-        "description": "↑ {{Damage}} 受伤时20%几率+1.8伤害#{{Luck}} 运气8：100%几率#离开房间后重置"
+        "description": "↑ {{Damage}}受伤时20%几率+1.8伤害#{{Luck}}运气8：100%几率#离开房间后重置"
     },
     41: {
         "id": 41,
         "name": "火柴棍",
-        "description": "{{Bomb}} 10%几率房间清理奖励为1炸弹#几率在箱子，宝藏岩石，炸毁的机器中额外出现炸弹#!!! {{Trinket53}}能够移除\"血虱\""
+        "description": "{{Bomb}}10%几率房间清理奖励为1炸弹#几率在箱子，宝藏岩石，炸毁的机器中额外出现炸弹#!!! {{Trinket53}}能够移除\"血虱\""
     },
     42: {
         "id": 42,
         "name": "幸运脚趾",
-        "description": "↑ {{Luck}} +1运气#+8%房间清理奖励几率#在箱子，宝藏岩石，炸毁的机器中有额外掉落物"
+        "description": "↑ {{Luck}}+1运气#+8%房间清理奖励几率#在箱子，宝藏岩石，炸毁的机器中有额外掉落物"
     },
     43: {
         "id": 43,
@@ -223,17 +223,17 @@ export const trinkets: { [key: number]: item } = {
     44: {
         "id": 44,
         "name": "保险瓶盖",
-        "description": "{{Pill}} 10%几率房间清理奖励为1胶囊#{{Pill}} 几率在箱子，宝藏岩石，炸毁的机器中额外出现胶囊"
+        "description": "{{Pill}}10%几率房间清理奖励为1胶囊#{{Pill}}几率在箱子，宝藏岩石，炸毁的机器中额外出现胶囊"
     },
     45: {
         "id": 45,
         "name": "黑桃A",
-        "description": "{{Card}} 10%几率房间清理奖励为1卡牌#{{Card}} 几率在箱子，宝藏岩石，炸毁的机器中额外出现卡牌"
+        "description": "{{Card}}10%几率房间清理奖励为1卡牌#{{Card}}几率在箱子，宝藏岩石，炸毁的机器中额外出现卡牌"
     },
     46: {
         "id": 46,
         "name": "以撒的叉子",
-        "description": "{{HalfHeart}} 清理房间后几率治疗半红心"
+        "description": "{{HalfHeart}}清理房间后几率治疗半红心"
     },
     47: {
         "id": 47,
@@ -248,27 +248,27 @@ export const trinkets: { [key: number]: item } = {
     49: {
         "id": 49,
         "name": "染血硬币",
-        "description": "{{HalfHeart}} 捡起硬币时有25%几率生成半红心"
+        "description": "{{HalfHeart}}捡起硬币时有25%几率生成半红心"
     },
     50: {
         "id": 50,
         "name": "焦灼硬币",
-        "description": "{{Bomb}} 捡起硬币时有25%几率生成炸弹"
+        "description": "{{Bomb}}捡起硬币时有25%几率生成炸弹"
     },
     51: {
         "id": 51,
         "name": "扁平硬币",
-        "description": "{{Key}} 捡起硬币时有25%几率生成钥匙"
+        "description": "{{Key}}捡起硬币时有25%几率生成钥匙"
     },
     52: {
         "id": 52,
         "name": "假币",
-        "description": "{{Coin}} 捡起硬币时有50%几率再获得1硬币"
+        "description": "{{Coin}}捡起硬币时有50%几率再获得1硬币"
     },
     53: {
         "id": 53,
         "name": "血虱",
-        "description": "{{HealingRed}} 进入{{BossRoom}}头目房时, 治疗1红心#头目血量-15%#{{Warning}} 捡起后, 无法被其他饰品替换#只能被{{Trinket41}}火柴棍, {{Trinket135}}打火机移除或吞下"
+        "description": "{{HealingRed}}进入{{BossRoom}}头目房时, 治疗1红心#头目血量-15%#{{Warning}}捡起后, 无法被其他饰品替换#只能被{{Trinket41}}火柴棍, {{Trinket135}}打火机移除或吞下"
     },
     54: {
         "id": 54,
@@ -278,12 +278,12 @@ export const trinkets: { [key: number]: item } = {
     55: {
         "id": 55,
         "name": "抹大拉的信仰",
-        "description": "{{EternalHeart}} 每层一开始获得1永恒之心"
+        "description": "{{EternalHeart}}每层一开始获得1永恒之心"
     },
     56: {
         "id": 56,
         "name": "犹大的舌头",
-        "description": "{{DevilChance}} 降低恶魔房交易2心价格为1心"
+        "description": "{{DevilChance}}降低恶魔房交易2心价格为1心"
     },
     57: {
         "id": 57,
@@ -293,17 +293,17 @@ export const trinkets: { [key: number]: item } = {
     58: {
         "id": 58,
         "name": "参孙的发髻",
-        "description": "↑ {{Damage}} 杀死敌人时有1/15几率+0.5伤害#{{Luck}} 运气10：100%几率#离开房间后重置"
+        "description": "↑ {{Damage}}杀死敌人时有1/15几率+0.5伤害#{{Luck}}运气10：100%几率#离开房间后重置"
     },
     59: {
         "id": 59,
         "name": "该隐的眼睛",
-        "description": "25%几率揭示新一层的地图图标#{{Luck}} 运气3：100%几率"
+        "description": "25%几率揭示新一层的地图图标#{{Luck}}运气3：100%几率"
     },
     60: {
         "id": 60,
         "name": "夏娃的鸟爪",
-        "description": "杀死敌人时有5%几率生成{{Collectible117}}死鸟#{{Luck}} 运气8：100%几率"
+        "description": "杀死敌人时有5%几率生成{{Collectible117}}死鸟#{{Luck}}运气8：100%几率"
     },
     61: {
         "id": 61,
@@ -328,17 +328,17 @@ export const trinkets: { [key: number]: item } = {
     65: {
         "id": 65,
         "name": "长条虫",
-        "description": "↑ {{Range}} +3.0射程"
+        "description": "↑ {{Range}}+3.0射程"
     },
     66: {
         "id": 66,
         "name": "懒散虫",
-        "description": "↓ {{Shotspeed}} -0.5弹速"
+        "description": "↓ {{Shotspeed}}-0.5弹速"
     },
     67: {
         "id": 67,
         "name": "碎裂六面骰",
-        "description": "受伤时有50%几率触发以下一种骰子效果#{{Blank}} {{Collectible105}} D6#{{Blank}} {{Collectible406}} D8#{{Blank}} {{Collectible386}} D12#{{Blank}} {{Collectible166}} D20"
+        "description": "受伤时有50%几率触发以下一种骰子效果#{{Blank}}{{Collectible105}}D6#{{Blank}}{{Collectible406}}D8#{{Blank}}{{Collectible386}}D12#{{Blank}}{{Collectible166}}D20"
     },
     68: {
         "id": 68,
@@ -403,7 +403,7 @@ export const trinkets: { [key: number]: item } = {
     80: {
         "id": 80,
         "name": "黑色羽毛",
-        "description": "↑ {{Damage}} 每持有1个\"邪恶上升\"道具+0.5伤害"
+        "description": "↑ {{Damage}}每持有1个\"邪恶上升\"道具+0.5伤害"
     },
     81: {
         "id": 81,
@@ -428,7 +428,7 @@ export const trinkets: { [key: number]: item } = {
     85: {
         "id": 85,
         "name": "业报",
-        "description": "增加使用捐款机时+1运气的概率#使用捐款机时有概率触发：#{{Heart}} 治疗1红心#生成1个乞丐#{{Coin}} 给予1硬币"
+        "description": "增加使用捐款机时+1运气的概率#使用捐款机时有概率触发：#{{Heart}}治疗1红心#生成1个乞丐#{{Coin}}给予1硬币"
     },
     86: {
         "id": 86,
@@ -438,7 +438,7 @@ export const trinkets: { [key: number]: item } = {
     87: {
         "id": 87,
         "name": "妈妈的吊坠",
-        "description": "{{HalfHeart}} 使用钥匙时治疗半红心#将半红心变成整心"
+        "description": "{{HalfHeart}}使用钥匙时治疗半红心#将半红心变成整心"
     },
     88: {
         "id": 88,
@@ -483,7 +483,7 @@ export const trinkets: { [key: number]: item } = {
     96: {
         "id": 96,
         "name": "衔尾虫",
-        "description": "眼泪螺旋式快速前进#↑ {{Tears}} +0.4射速#↑ {{Range}} +1.5射程#获得幽灵眼泪效果#几率为跟踪眼泪"
+        "description": "眼泪螺旋式快速前进#↑ {{Tears}}+0.4射速#↑ {{Range}}+1.5射程#获得幽灵眼泪效果#几率为跟踪眼泪"
     },
     97: {
         "id": 97,
@@ -493,7 +493,7 @@ export const trinkets: { [key: number]: item } = {
     98: {
         "id": 98,
         "name": "鼻涕泡",
-        "description": "{{Poison}} 10%几率发射跟踪粘性有毒眼泪#{{Damage}} 每秒造成100%角色伤害#能粘住10秒"
+        "description": "{{Poison}}10%几率发射跟踪粘性有毒眼泪#{{Damage}}每秒造成100%角色伤害#能粘住10秒"
     },
     99: {
         "id": 99,
@@ -503,12 +503,12 @@ export const trinkets: { [key: number]: item } = {
     100: {
         "id": 100,
         "name": "亮灯泡",
-        "description": "!!! 当主动道具满充能时：#↑ {{Damage}} +0.5伤害#↑ {{Speed}} +0.25移速#↑ {{Range}} +0.75射程#↑ {{Tears}} +0.2射速#↑ {{Shotspeed}} +0.1弹速#↑ {{Luck}} +1运气"
+        "description": "!!! 当主动道具满充能时：#↑ {{Damage}}+0.5伤害#↑ {{Speed}}+0.25移速#↑ {{Range}}+0.75射程#↑ {{Tears}}+0.2射速#↑ {{Shotspeed}}+0.1弹速#↑ {{Luck}}+1运气"
     },
     101: {
         "id": 101,
         "name": "暗灯泡",
-        "description": "!!! 当主动道具无充能时：#↑ {{Damage}} +1.5伤害#↑ {{Speed}} +0.5移速#↑ {{Range}} +1.5射程#↑ {{Tears}} +0.5射速#↑ {{Shotspeed}} +0.3弹速#↑ {{Luck}} +2运气"
+        "description": "!!! 当主动道具无充能时：#↑ {{Damage}}+1.5伤害#↑ {{Speed}}+0.5移速#↑ {{Range}}+1.5射程#↑ {{Tears}}+0.5射速#↑ {{Shotspeed}}+0.3弹速#↑ {{Luck}}+2运气"
     },
     102: {
         "id": 102,
@@ -528,7 +528,7 @@ export const trinkets: { [key: number]: item } = {
     105: {
         "id": 105,
         "name": "午餐袋",
-        "description": "{{Collectible22}} 受伤时, 5%几率被摧毁并生成午餐"
+        "description": "{{Collectible22}}受伤时, 5%几率被摧毁并生成午餐"
     },
     106: {
         "id": 106,
@@ -553,12 +553,12 @@ export const trinkets: { [key: number]: item } = {
     110: {
         "id": 110,
         "name": "银币",
-        "description": "{{Shop}} 商店会出现在子宫层和腐尸层"
+        "description": "{{Shop}}商店会出现在子宫层和腐尸层"
     },
     111: {
         "id": 111,
         "name": "染血王冠",
-        "description": "{{TreasureRoom}} 道具房会出现在子宫层和腐尸层"
+        "description": "{{TreasureRoom}}道具房会出现在子宫层和腐尸层"
     },
     112: {
         "id": 112,
@@ -598,7 +598,7 @@ export const trinkets: { [key: number]: item } = {
     119: {
         "id": 119,
         "name": "干细胞",
-        "description": "{{Heart}} 进入下一层时治疗空的心之容器/骨心的一半#至少治疗半红心"
+        "description": "{{Heart}}进入下一层时治疗空的心之容器/骨心的一半#至少治疗半红心"
     },
     120: {
         "id": 120,
@@ -608,7 +608,7 @@ export const trinkets: { [key: number]: item } = {
     121: {
         "id": 121,
         "name": "木十字架",
-        "description": "{{Collectible313}} 阻挡每层第一次受到的伤害"
+        "description": "{{Collectible313}}阻挡每层第一次受到的伤害"
     },
     122: {
         "id": 122,
@@ -643,22 +643,22 @@ export const trinkets: { [key: number]: item } = {
     128: {
         "id": 128,
         "name": "指骨",
-        "description": "{{EmptyBoneHeart}} 受伤时有4%几率获得骨心"
+        "description": "{{EmptyBoneHeart}}受伤时有4%几率获得骨心"
     },
     129: {
         "id": 129,
         "name": "崩掉牙",
-        "description": "10%几率发射牙齿眼泪#{{Damage}} 牙齿造成320%角色伤害#{{Luck}} 运气9：100%几率"
+        "description": "10%几率发射牙齿眼泪#{{Damage}}牙齿造成320%角色伤害#{{Luck}}运气9：100%几率"
     },
     130: {
         "id": 130,
         "name": "嚼烂的笔",
-        "description": "{{Slow}} 10%几率发射减速眼泪#{{Luck}} 运气18：100%几率"
+        "description": "{{Slow}}10%几率发射减速眼泪#{{Luck}}运气18：100%几率"
     },
     131: {
         "id": 131,
         "name": "神圣硬币",
-        "description": "{{SoulHeart}} 捡起硬币时有17%几率生成半魂心"
+        "description": "{{SoulHeart}}捡起硬币时有17%几率生成半魂心"
     },
     132: {
         "id": 132,
@@ -678,7 +678,7 @@ export const trinkets: { [key: number]: item } = {
     135: {
         "id": 135,
         "name": "打火机",
-        "description": "{{Burning}} 进入房间时有20%几率对敌人施加燃烧效果"
+        "description": "{{Burning}}进入房间时有20%几率对敌人施加燃烧效果"
     },
     136: {
         "id": 136,
@@ -698,7 +698,7 @@ export const trinkets: { [key: number]: item } = {
     139: {
         "id": 139,
         "name": "泪滴护符",
-        "description": "{{Luck}} 对基于运气的眼泪效果+3运气"
+        "description": "{{Luck}}对基于运气的眼泪效果+3运气"
     },
     140: {
         "id": 140,
@@ -718,7 +718,7 @@ export const trinkets: { [key: number]: item } = {
     143: {
         "id": 143,
         "name": "老旧电容",
-        "description": "阻止主动道具充能#{{Battery}} 清理房间后有20%几率生成电池"
+        "description": "阻止主动道具充能#{{Battery}}清理房间后有20%几率生成电池"
     },
     144: {
         "id": 144,
@@ -728,12 +728,12 @@ export const trinkets: { [key: number]: item } = {
     146: {
         "id": 146,
         "name": "恶魔王冠",
-        "description": "{{RedTreasureRoom}} 道具房现在含有恶魔交易"
+        "description": "{{RedTreasureRoom}}道具房现在含有恶魔交易"
     },
     147: {
         "id": 147,
         "name": "充能硬币",
-        "description": "{{Battery}} 捡起硬币时有17%几率对主动道具充能1格"
+        "description": "{{Battery}}捡起硬币时有17%几率对主动道具充能1格"
     },
     148: {
         "id": 148,
@@ -758,7 +758,7 @@ export const trinkets: { [key: number]: item } = {
     152: {
         "id": 152,
         "name": "望远镜片",
-        "description": "{{PlanetariumChance}} 提高星象房基础几率为10%#{{PlanetariumChance}} 第一次产生星象房前额外增加15%几率#生成星象房后仍可生成星象房#{{PlanetariumChance}} 在第一次进入后几率保持为10%#星象房可在子宫和尸宫生成"
+        "description": "{{PlanetariumChance}}提高星象房基础几率为10%#{{PlanetariumChance}}第一次产生星象房前额外增加15%几率#生成星象房后仍可生成星象房#{{PlanetariumChance}}在第一次进入后几率保持为10%#星象房可在子宫和尸宫生成"
     },
     153: {
         "id": 153,
@@ -778,7 +778,7 @@ export const trinkets: { [key: number]: item } = {
     156: {
         "id": 156,
         "name": "母亲的吻",
-        "description": "持有时获得1心之容器#{{Player14}} 对店主也有效"
+        "description": "持有时获得1心之容器#{{Player14}}对店主也有效"
     },
     157: {
         "id": 157,
@@ -793,7 +793,7 @@ export const trinkets: { [key: number]: item } = {
     159: {
         "id": 159,
         "name": "镀金钥匙",
-        "description": "{{Key}} 首次捡起时+1钥匙#{{GoldenChest}} 以金箱子替换所有新箱子(除了旧箱子和巨型箱子)#{{GoldenChest}} 所有金箱子包含卡牌，胶囊或饰品#对巨型箱子无效"
+        "description": "{{Key}}首次捡起时+1钥匙#{{GoldenChest}}以金箱子替换所有新箱子(除了旧箱子和巨型箱子)#{{GoldenChest}}所有金箱子包含卡牌，胶囊或饰品#对巨型箱子无效"
     },
     160: {
         "id": 160,
@@ -808,7 +808,7 @@ export const trinkets: { [key: number]: item } = {
     162: {
         "id": 162,
         "name": "阿撒泻勒的残角",
-        "description": "{{Player7}} 清理房间后有50%几率变为阿撒泻勒#效果持续到清理或离开另一个房间"
+        "description": "{{Player7}}清理房间后有50%几率变为阿撒泻勒#效果持续到清理或离开另一个房间"
     },
     163: {
         "id": 163,
@@ -818,7 +818,7 @@ export const trinkets: { [key: number]: item } = {
     164: {
         "id": 164,
         "name": "火药圈",
-        "description": "{{Bomb}} 放置炸弹时生成1个额外炸弹"
+        "description": "{{Bomb}}放置炸弹时生成1个额外炸弹"
     },
     165: {
         "id": 165,
@@ -838,37 +838,37 @@ export const trinkets: { [key: number]: item } = {
     168: {
         "id": 168,
         "name": "空壳心",
-        "description": "{{EmptyBoneHeart}} 进入新一层时+1骨心"
+        "description": "{{EmptyBoneHeart}}进入新一层时+1骨心"
     },
     169: {
         "id": 169,
         "name": "儿童涂鸦",
-        "description": "{{Guppy}} 持有时当做1个嗝屁猫套装道具"
+        "description": "{{Guppy}}持有时当做1个嗝屁猫套装道具"
     },
     170: {
         "id": 170,
         "name": "水晶钥匙",
-        "description": "{{Collectible580}} 清理房间后有33%几率打开一个与当前房间相连的红房间#红房间中触发几率降低"
+        "description": "{{Collectible580}}清理房间后有33%几率打开一个与当前房间相连的红房间#红房间中触发几率降低"
     },
     171: {
         "id": 171,
         "name": "店主的协议",
-        "description": "{{DevilChance}} 50%几率使恶魔交易花费硬币而不是心"
+        "description": "{{DevilChance}}50%几率使恶魔交易花费硬币而不是心"
     },
     172: {
         "id": 172,
         "name": "诅咒硬币",
-        "description": "{{Coin}} 捡起硬币时传送至随机房间#可以传送到隐藏房"
+        "description": "{{Coin}}捡起硬币时传送至随机房间#可以传送到隐藏房"
     },
     173: {
         "id": 173,
         "name": "你的灵魂",
-        "description": "{{DevilChance}} 免费进行一次恶魔交易"
+        "description": "{{DevilChance}}免费进行一次恶魔交易"
     },
     174: {
         "id": 174,
         "name": "数字冰箱贴",
-        "description": "{{DevilChance}} +10%恶魔房几率#防止恶魔交易中出现坎卜斯"
+        "description": "{{DevilChance}}+10%恶魔房几率#防止恶魔交易中出现坎卜斯"
     },
     175: {
         "id": 175,
@@ -918,7 +918,7 @@ export const trinkets: { [key: number]: item } = {
     184: {
         "id": 184,
         "name": "领养协议书",
-        "description": "{{Shop}} 商店变为宝宝商店，每个跟班卖10硬币"
+        "description": "{{Shop}}商店变为宝宝商店，每个跟班卖10硬币"
     },
     185: {
         "id": 185,
@@ -928,17 +928,17 @@ export const trinkets: { [key: number]: item } = {
     186: {
         "id": 186,
         "name": "亚玻伦的挚友",
-        "description": "{{Collectible706}} 生成1只天启蝗虫"
+        "description": "{{Collectible706}}生成1只天启蝗虫"
     },
     187: {
         "id": 187,
         "name": "碎掉的眼镜",
-        "description": "{{TreasureRoom}} 50%几率在道具房添加1个额外的问号道具#{{TreasureRoom}} 50%几率揭示分支路线的问号道具"
+        "description": "{{TreasureRoom}}50%几率在道具房添加1个额外的问号道具#{{TreasureRoom}}50%几率揭示分支路线的问号道具"
     },
     188: {
         "id": 188,
         "name": "冰块",
-        "description": "进入房间时有20%几率石化1个敌人#{{Freezing}} 击杀石化的敌人可将其冻结"
+        "description": "进入房间时有20%几率石化1个敌人#{{Freezing}}击杀石化的敌人可将其冻结"
     },
     189: {
         "id": 189,

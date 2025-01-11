@@ -5,6 +5,8 @@ import { cards } from './cards'
 import { collectibles } from './collectibles'
 import { trinkets } from './trinkets'
 import { pills } from './pills'
+import { bookOfVirtuesWisps } from './bookOfVirtuesWisps'
+import { abyssSynergies } from './abyss'
 
 export const name = 'isaac-eid'
 
@@ -19,17 +21,23 @@ interface item {
 }
 
 function renderDescription(description: string): string {
-  description = description.replaceAll('#', '\n')
+  description = description.replaceAll('#', '\n\t')
   description = description.replace(/\{\{.*?\}\}/g, '')
-  return description
+  return "\t" + description
 }
 
 function renderCollectible(type: string, item: item): string {
-  let result = type + item.id + " " + item.name + "：\n" + renderDescription(item.description) + "\n" + "道具池："
+  let result = type + item.id + " " + item.name + "：\n" + renderDescription(item.description) + "\n" + "道具池：\n\t"
   for (let key in Pool) {
     if (Pool[key].indexOf(item.id) != -1) {
       result += PoolAlias[key][0] + " "
     }
+  }
+  if (item.id in bookOfVirtuesWisps) {
+    result += "\n美德之书：\n" + renderDescription(bookOfVirtuesWisps[item.id])
+  }
+  if (item.id in abyssSynergies) {
+    result += "\n无底坑：\n" + renderDescription(abyssSynergies[item.id])
   }
   return result
 }
@@ -40,7 +48,6 @@ function pickRandomCollectible(alias: string): number {
     return -1
   return pool[Math.floor(Math.random() * pool.length)]
 }
-
 
 
 export function apply(ctx: Context) {
