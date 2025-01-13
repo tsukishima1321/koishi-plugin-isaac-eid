@@ -2518,7 +2518,7 @@ export const collectibles: { [key: number]: item } = {
         "type": "c",
         "id": 419,
         "name": "传送2.0",
-        "description": "传送至另1个未探索的随机房间#等级：{{Room}}>{{BossRoom}}>{{SuperSecretRoom}}>{{Shop}}>{{TreasureRoom}}>{{Planetarium}}>{{SacrificeRoom}}>{{DiceRoom}}> {{Library}}>{{CursedRoom}}>{{MiniBoss}}>{{ChallengeRoom}}>{{IsaacsRoom}}>{{ArcadeRoom}}>{{ChestRoom}}>{{SecretRoom}}>{{DevilRoom}}/{{AngelRoom}}>{{ErrorRoom}}"
+        "description": "传送至另1个未探索的随机房间#等级：{{Room}}普通房间>{{BossRoom}}头目房>{{SuperSecretRoom}}超隐>{{Shop}}商店>{{TreasureRoom}}宝箱房>{{Planetarium}}星象房>{{SacrificeRoom}}献祭房>{{DiceRoom}}骰子房>{{Library}}图书馆>{{CursedRoom}}诅咒房>{{MiniBoss}}mini头目房>{{ChallengeRoom}}挑战房>{{IsaacsRoom}}卧室>{{ArcadeRoom}}游戏房>{{ChestRoom}}宝库>{{SecretRoom}}隐藏房>{{DevilRoom}}/{{AngelRoom}}恶魔/天使房>{{ErrorRoom}}错误房"
     },
     420: {
         "type": "c",
