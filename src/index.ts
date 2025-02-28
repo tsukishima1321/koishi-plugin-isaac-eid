@@ -7,6 +7,7 @@ import { trinkets } from './trinkets'
 import { pills } from './pills'
 import { bookOfVirtuesWisps } from './bookOfVirtuesWisps'
 import { abyssSynergies } from './abyss'
+import { achievement, achievements } from './achievements'
 
 export const inject = {
   required: ['database'],
@@ -222,6 +223,41 @@ export function apply(ctx: Context, cfg: Config) {
         }
         return resultStr
       }
+    })
+
+  ctx.command('isaac-eid/eid-achievement <arg:string>', '查找以撒成就信息').alias('eid成就')
+    .action(async (_, arg) => {
+      if (!arg) {
+        return '请输入要查找的成就名称'
+      }
+      if (arg.length == 0) {
+        return '请输入成就名称'
+      }
+      let result: { [key: number]: achievement } = []
+      if (!Number.isNaN(parseInt(arg))) {
+        if (achievements[arg]) {
+          result[arg] = achievements[arg]
+        }
+      } else {
+        const rExp: RegExp = new RegExp(arg)
+        for (const key in achievements) {
+          if (rExp.test(achievements[key].name) || rExp.test(achievements[key].acquire)) {
+            result[key] = achievements[key]
+          }
+        }
+      }
+      if (Object.keys(result).length == 0) {
+        return '未找到成就'
+      }
+      let resultStr = ''
+      if (Object.keys(result).length == 1) {
+        resultStr += result[Object.keys(result)[0]].name + "：\n\n" + result[Object.keys(result)[0]].description + "\n\n解锁条件：" + result[Object.keys(result)[0]].requirement + "\n奖励：" + result[Object.keys(result)[0]].acquire
+        return resultStr
+      }
+      for (const key in result) {
+        resultStr += key + "：" + result[key].name.replace('\n', ' ') + "\n"
+      }
+      return resultStr
     })
 
   ctx.command('isaac-eid/eid-rand <pool:string>', '随机生成一个道具').alias('随机道具')
