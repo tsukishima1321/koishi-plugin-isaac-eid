@@ -870,6 +870,12 @@ export const trinkets: { [key: number]: item } = {
         "name": "脑形虫",
         "description": "眼泪如果会打不中敌人，则90度转向敌人"
     },
+    145:{
+        "type": "t",
+        "id": 145,
+        "name": "满分考卷",
+        "description": "↑ {{Luck}} 幸运+10#受伤时摧毁此饰品"
+    },
     146: {
         "type": "t",
         "id": 146,

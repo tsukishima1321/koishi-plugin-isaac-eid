@@ -81,7 +81,7 @@ function renderCollectible(item: item, cfg: Config): string {
 
 function pickRandomCollectible(alias: string): number {
   const pool = GetPoolByAlias(alias)
-  if (!pool)
+  if (!pool || pool.length == 0)
     return -1
   return pool[Math.floor(Math.random() * pool.length)]
 }
