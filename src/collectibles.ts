@@ -1786,7 +1786,7 @@ export const collectibles: { [key: number]: item } = {
         "type": "c",
         "id": 297,
         "name": "潘多拉魔盒",
-        "description": "{{NoLB}}根据所在层生成奖励:#1章1: 2{{SoulHeart}}; 1章2: 2{{Bomb}}+2{{Key}}#{{NoLB}}2章1: 1{{BossRoom}}道具; 2章2: 2章1+2{{SoulHeart}}#3章1: 4{{SoulHeart}}; 3章2: 20{{Coin}}#4章1: 2{{BossRoom}}道具; 4章2: {{Collectible33}}圣经#???/虚空: 无#阴间: 1{{DevilRoom}}道具+1{{BlackHeart}}; 教堂: 1{{AngelRoom}}道具+1{{EternalHeart}}#{{NoLB}}暗室: 解锁{{Collectible523}}搬家盒; 玩具箱: 1{{Coin}}#家: {{Collectible580}}红钥匙"
+        "description": "{{NoLB}}根据所在层生成奖励:#1章1: 2魂心{{SoulHeart}}; #1章2: 2炸弹{{Bomb}}+2钥匙{{Key}}#{{NoLB}}2章1: 1{{BossRoom}}Boss房道具; #2章2: 2章1+2魂心{{SoulHeart}}#3章1: 4魂心{{SoulHeart}}; #3章2: 20硬币{{Coin}}#4章1: 2Boss房{{BossRoom}}道具; #4章2: {{Collectible33}}圣经#???/虚空: 无#阴间: 1{{DevilRoom}}恶魔房道具+1黑心{{BlackHeart}}; #教堂: 1天使房{{AngelRoom}}道具+1永恒之心{{EternalHeart}}#{{NoLB}}暗室: 解锁{{Collectible523}}搬家盒; #玩具箱: 1硬币{{Coin}}#家: {{Collectible580}}红钥匙"
     },
     298: {
         "type": "c",
@@ -4018,7 +4018,7 @@ export const collectibles: { [key: number]: item } = {
         "type": "c",
         "id": 669,
         "name": "腊肠",
-        "description": "↑ {{Heart}}+1心之容器#{{Heart}}满血#↑ {{Damage}}+0.5伤害#↑ {{Speed}}+0.2移速#↑ {{Range}}+2.5射程#↑ {{Shotspeed}}+0.16弹速#↑ {{Luck}}+1运气#{{AngelDevilChance}}+6.9%恶魔房/天使房几率#{{Planetarium}}+6.9%星象房几率"
+        "description": "↑ {{Heart}} +1心之容器#↑ {{Speed}} 移速+0.2#↑ {{Tears}} 射速+0.5#↑ {{Damage}} 伤害+0.5#↑ {{Range}} 射程+2.5#↑ {{Shotspeed}} 弹速+0.16#↑ {{Luck}} 幸运+1#{{HealingRed}} 回满血#{{AngelDevilChance}} 恶魔房/天使房几率+6.9%#{{Planetarium}} 星象房几率+6.9%"
     },
     670: {
         "type": "c",
@@ -4324,7 +4324,7 @@ export const collectibles: { [key: number]: item } = {
         "type": "c",
         "id": 720,
         "name": "百宝罐",
-        "description": "使用时生成掉落物，使用时的充能不同，效果不同#满充能时具有强力随机效果#充能：1:便便 2:{{Coin}}3:{{Bomb}}4:{{Key}}5:{{Heart}}6:{{Pill}}7:{{Card}}8:{{SoulHeart}}9:{{GoldenHeart}}10:{{GoldenKey}}11:{{GoldenBomb}}"
+        "description": "使用时生成掉落物，使用时的充能不同，效果不同#满充能时具有强力随机效果#充能：1:便便 2:硬币{{Coin}} 3:炸弹{{Bomb}} 4:钥匙{{Key}}5:红心{{Heart}} 6:胶囊{{Pill}} 7:卡牌{{Card}} 8:魂心{{SoulHeart}} 9:金心{{GoldenHeart}} 10:金钥匙{{GoldenKey}} 11:金炸弹{{GoldenBomb}}#12:触发以下效果中的一个#  生成6-17个掉落物#  生成一个苍蝇#  生成5-14个蓝蜘蛛、蓝苍蝇或粪滴跟班#  关闭房间中的所有门，并在每个门前都生成一些敌人#  什么也不会发生#  生成1个道具，该道具会在9个当前房间道具池内的道具选项之间快速切换#  生成5-14个彩色光束。每道光束能对敌人造成6次伤害，不同颜色的光束对敌人伤害不同#  触发反人类卡的效果#  触发无政府主义者食谱的效果#  触发数据破解的效果#  生成6-17个商店店主#  生成一个巨型炸弹（有25%概率为被点燃的）"
     },
     721: {
         "type": "c",
