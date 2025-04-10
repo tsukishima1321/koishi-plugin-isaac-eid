@@ -1,4 +1,4 @@
-import { Context, Schema } from 'koishi'
+import { Context, Schema,Time } from 'koishi'
 import { Pool, PoolAlias, GetPoolByAlias } from './pool'
 import { birthrights, GetCharacterByAlias, characterAlias } from './character'
 import { cards } from './cards'
@@ -8,20 +8,46 @@ import { pills } from './pills'
 import { bookOfVirtuesWisps } from './bookOfVirtuesWisps'
 import { abyssSynergies } from './abyss'
 import { achievement, achievements } from './achievements'
+import { tells } from './tells'
+
+import path from 'path'
+import fs from 'fs'
+import { } from 'koishi-plugin-puppeteer'
+import { } from '@koishijs/cache'
 
 export const inject = {
-  required: ['database'],
+  required: ['database', 'cache', 'puppeteer'],
   optional: [],
 }
 
 export const name = 'isaac-eid'
+
+interface StyleConfig {
+  maxFontSize: number
+  minFontSize: number
+  offsetWidth: number
+}
+
+interface RandomConfig {
+  trinket: number
+}
 
 export interface Config {
   collectiblesConditions: {
     bookOfVirtues: boolean,
     abyss: boolean
   },
+  foretell: {
+    style: StyleConfig
+    random: RandomConfig
+  }
   pool: boolean
+}
+
+declare module '@koishijs/cache' {
+  interface Tables {
+    trinkets_base: { time: number, already: Array<number> }
+  }
 }
 
 export const Config: Schema<Config> = Schema.object({
@@ -30,10 +56,49 @@ export const Config: Schema<Config> = Schema.object({
     bookOfVirtues: Schema.boolean().default(true).description("美德之书"),
     abyss: Schema.boolean().default(true).description("无底坑")
   }).description("道具兼容显示"),
+  foretell: Schema.object({
+    style: Schema.object({
+      maxFontSize: Schema.number().min(1).default(50).description('最大字体大小（px）'),
+      minFontSize: Schema.number().min(1).default(10).description('最小字体大小（px）'),
+      offsetWidth: Schema.number().min(1).default(440)
+        .description('单行最大宽度（px），任意一行文本达到此宽度后会缩小字体以尽可能不超出此宽度，直到字体大小等于`minFontSize`'),
+    }).description('格式设置'),
+    random: Schema.object({
+      trinket: Schema.number().min(0).max(100).default(20).description('抽取到饰品的概率，0-100')
+    }).description('随机设置')
+  }).description('预言机设置'),
 })
 
 type itemCode = string
 type itemName = string
+
+interface Tell {
+  ch: string,
+  en: string
+}
+
+interface Trinket {
+  id: number,
+  name: string,
+  des: string
+}
+
+function isSameDay(timestamp1: number, timestamp2: number): boolean {
+  const date1 = new Date(timestamp1)
+  const date2 = new Date(timestamp2)
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  )
+}
+
+function padding(num: string, length: number): string {
+  for (var len = num.length; len < length; len = num.length) {
+    num = "0" + num;
+  }
+  return num;
+}
 
 interface item {
   'type': string,
@@ -332,4 +397,186 @@ export function apply(ctx: Context, cfg: Config) {
         return resultStr
       }
     })
+
+  const fontPath = path.join(__dirname, '../static/fusion-pixel-12px-monospaced-zh_hans.ttf').split('\\').join('/')
+  const tellBg = fs.readFileSync(path.resolve(__dirname, '../static/short.jpg'))
+  const trinketsArray = Object.keys(trinkets).map((key) => { return trinkets[key].id})
+  ctx.command('eid/foretell').alias('预言机')
+    .action(async ({ session }) => {
+      while (1) {
+        let random = Math.floor(Math.random() * 100)
+        if (random < cfg.foretell.random.trinket) {
+          let guildId = session.guildId
+          if (!guildId) {
+            guildId = session.userId
+          }
+          let base = await ctx.cache.get('trinkets_base', guildId)
+          if (!base) {
+            base = { time: Date.now(), already:[]};
+            await ctx.cache.set('trinkets_base', guildId, base, 2 * Time.day)
+          } else if (!isSameDay(base.time, Date.now())) {
+            base = { time: Date.now(), already:[]};
+            await ctx.cache.set('trinkets_base', guildId, base, 2 * Time.day)
+          }
+          const trinketsAvailable = trinketsArray.filter((trinket) => !base.already.includes(trinket))
+          if(trinketsAvailable.length == 0) {
+            base.already = []
+            await ctx.cache.set('trinkets_base', guildId, base, 2 * Time.day)
+            continue
+          }
+          const randomIndex = Math.floor(Math.random() * trinketsAvailable.length)
+          const trinketId = trinketsAvailable[randomIndex]
+          base.already.push(trinketId)
+          await ctx.cache.set('trinkets_base', guildId, base, 2 * Time.day)
+          const trinket = trinkets[trinketId]
+          return await ctx.puppeteer.render(
+            trinketsRender({
+              fontFamily: fontPath,
+              img: fs.readFileSync(path.resolve(__dirname, `../static/trinkets/trinket_${padding(String(trinket.id), 3)}.png`)),
+              name: trinket.name,
+              des: trinket.description
+            })
+          )
+        } else {
+          return await ctx.puppeteer.render(
+            tellRender({
+              text: tells[Math.floor(Math.random() * tells.length)].ch,
+              fontFamily: fontPath,
+              maxFontSize: cfg.foretell.style.maxFontSize,
+              minFontSize: cfg.foretell.style.minFontSize,
+              offsetWidth: cfg.foretell.style.offsetWidth,
+              img: tellBg,
+              width: 500,
+              height: 185,
+            })
+          )
+        }
+      }
+
+    })
+}
+
+function tellRender(params: {
+  text: string,
+  fontFamily: string,
+  maxFontSize: number,
+  minFontSize: number,
+  offsetWidth: number,
+  img: Buffer,
+  width: number,
+  height: number,
+}) {
+  return `
+  <head>
+    <style>
+      @font-face {
+            font-family: myFont;
+            src: url('${params.fontFamily}');
+      }
+      body {
+        width: ${params.width}px;
+        height: ${params.height}px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        font-weight: 900;
+        font-family: "myFont";
+        color: '#000000';
+        background-image: url(data:image/png;base64,${params.img.toString('base64')});
+        background-repeat: no-repeat;
+        background-size: ${params.width}px ${params.height}px;
+      }
+      .shadow_text {
+        line-height: ${params.height}px;
+        text-shadow: 2px 0px 0px black;
+        font-weight: normal;
+        filter: blur(0.5px);
+    }
+    </style>
+  </head>
+  <body>
+    <div  class="shadow_text">${params.text.replaceAll('\n', '<BR>')}</div>
+  </body>
+  <script>
+    const dom = document.querySelector('body')
+    const div = dom.querySelector('div')
+    let fontSize = ${params.maxFontSize}
+    dom.style.fontSize = fontSize + 'px'
+    while (div.offsetWidth >= ${params.offsetWidth} && fontSize > ${params.minFontSize}) {
+      dom.style.fontSize = --fontSize + 'px'
+    }
+  </script>`
+}
+
+function trinketsRender(params: {
+  fontFamily: string,
+  img: Buffer,
+  name: string,
+  des: string
+}) {
+  let des = params.des
+  const regex = /\{\{.*?\}\}/g;
+  des = des.replace(regex, '');
+  des = des.replace(/#/g, '<BR>· ')
+  des = "· " + des
+  return `
+  <head>
+  <style>
+        @font-face {
+            font-family: myFont;
+            src: url('${params.fontFamily}');
+        }
+
+        body {
+            width: 160px;
+            display: inline-flex;
+            flex-direction: column;
+            margin: 0;
+            font-weight: normal;
+            font-family: "myFont";
+            font-size: 12px;
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        .top {
+          display: flex;
+          flex-direction: row;
+          line-height: 64px;
+          align-items: left;
+        }
+
+        .right {
+          padding-left: 5px;
+        }
+
+        .down {
+          font-size: 8px;
+          line-height:10px;
+          padding-top: 5px;
+          padding-left: 5px;
+          padding-bottom: 10px;
+        }
+
+        img {
+          image-rendering: pixelated;
+          width: 64px;
+          height: 64px;
+          margin-right: 2px;
+          border-style:solid;
+          border-width:2px;
+          border-color:black;
+        }
+    </style>
+  </head>
+  <body>
+  <div class="top"><img src="data:image/png;base64,${params.img.toString('base64')}" />
+    <div class="right">${params.name}</div>
+  </div>
+  <div class="down">${des}</div>
+  </body>
+  <script>
+  </script>`
 }
