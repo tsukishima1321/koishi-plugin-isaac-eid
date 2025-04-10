@@ -400,7 +400,7 @@ export function apply(ctx: Context, cfg: Config) {
 
   const fontPath = path.join(__dirname, '../static/fusion-pixel-12px-monospaced-zh_hans.ttf').split('\\').join('/')
   const tellBg = fs.readFileSync(path.resolve(__dirname, '../static/short.jpg'))
-  const trinketsArray = Object.keys(trinkets).map((key) => { return trinkets[key].id})
+  const trinketsArray = Object.keys(trinkets).map((key) => { return trinkets[key].id}).filter((key) => { return key != 145 })
   ctx.command('eid/foretell').alias('预言机')
     .action(async ({ session }) => {
       while (1) {
